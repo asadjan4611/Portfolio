@@ -6,13 +6,15 @@ import CareerTimeline from "./components/CareerTimeline.jsx";
 import Skills from "./components/Skills.jsx";
 import Projects from "./components/Projects.jsx";
 import Contact from "./components/Contact.jsx";
+import FloatingContact from "./components/FloatingContact.jsx";
+
 
 export default function App() {
   return (
     <div>
       <Navbar />
       <main>
-        <section id="home" className=" mt-2 ml-10">
+        <section id="home" className="section">
           <Hero />
         </section>
         <section id="about" className="section">
@@ -31,6 +33,9 @@ export default function App() {
           <Contact />
         </section>
       </main>
+      {/* <FloatingContact /> */}
     </div>
   );
 }
+
+

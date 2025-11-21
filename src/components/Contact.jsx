@@ -51,6 +51,24 @@ export default function Contact() {
               collaborations. Whether you’re looking for a full‑stack engineer, a mobile developer,
               or a mentor for your team, I’d love to hear from you.
             </p>
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a
+                href={`tel:${personal.phone}`}
+                className="btn btn-primary w-full"
+                aria-label="Call"
+              >
+                Call {personal.phone}
+              </a>
+              <a
+                href={`https://wa.me/${(personal.phone || "").replace(/[^\d]/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline w-full"
+                aria-label="WhatsApp Chat"
+              >
+                WhatsApp
+              </a>
+            </div>
           </div>
 
           <div className="card p-6">

@@ -21,13 +21,13 @@ export default function About() {
           <div className="h-1.5 w-14 bg-primary rounded-full mb-4" />
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <h3 className="font-semibold text-xl">My Journey</h3>
-            <div className="flex flex-wrap gap-2">
+            {/* <div className="flex flex-wrap gap-2">
               <span className="chip">ICPC Runner‑up</span>
               <span className="chip">Undergraduate</span>
               <span className="chip">MERN</span>
               <span className="chip">Flutter</span>
               <span className="chip">Cloud Basics</span>
-            </div>
+            </div> */}
           </div>
           
           <div className="text-body space-y-3 mt-4">

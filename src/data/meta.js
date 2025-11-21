@@ -7,6 +7,7 @@ export const personal = {
     "Full‑stack developer (MERN), Flutter mobile, and cloud‑ready engineering with a focus on clean code and user‑centric design.",
   oneLiner: "I bridge the gap between theoretical AI research and practical, user‑friendly applications.",
   email: "asadjan298663@example.com",
+  phone: "+923326982552",
   location: "Pakistan",
   socials: {
     github: "https://github.com/asadjan4611",

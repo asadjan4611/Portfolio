@@ -25,7 +25,7 @@ const Item = ({
         <div className="flex items-start justify-between gap-3">
           <div>
             <div className="font-semibold">{role}</div>
-            <div className="text-sm text-white/70">{org}</div>
+            {/* <div className="text-sm text-white/70">{org}</div> */}
           </div>
           <span className="px-3 py-1 rounded-full bg-primary text-black text-xs font-semibold whitespace-nowrap">
             {period}

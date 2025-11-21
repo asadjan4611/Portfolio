@@ -6,13 +6,13 @@ export default {
     extend: {
       colors: {
         background: "#0b1020",
-        surface: "#0f1629",
+        surface: "#0b1020",
         primary: {
-          DEFAULT: "#7C3AED",
-          600: "#6D28D9",
-          700: "#5B21B6"
+          DEFAULT: "#247ba0",
+          600: "#1f6b8f",
+          700: "#195a77"
         },
-        muted: "#a3b1c6"
+        muted: "#9aa4b2"
       },
       boxShadow: {
         soft: "0 10px 30px rgba(0,0,0,0.35)"
