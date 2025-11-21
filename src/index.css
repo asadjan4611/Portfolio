@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(124,58,237,0.12), transparent 60%),
+    radial-gradient(800px 400px at 90% 10%, rgba(124,58,237,0.08), transparent 55%),
+    #0b0f17;
+}
+
+.container-limit {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+.section {
+  @apply container-limit py-16 md:py-24;
+}
+
+.title-gradient {
+  background: linear-gradient(90deg, #ffffff 0%, #9aa4b2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-head { @apply text-center mb-6; }
+.section-head .kicker { @apply chip; }
+.section-head .headline { @apply mt-3 text-3xl md:text-4xl font-extrabold; }
+.section-head .subhead { @apply mt-2 text-white/80 max-w-3xl md:max-w-4xl mx-auto leading-relaxed; }
+
+.highlight {
+  color: #7C3AED;
+  font-weight: 700;
+}
+
+.hero-min {
+  min-height: 78vh;
+}
+
+.fade-up {
+  animation: fadeUp 0.7s ease-out both;
+}
+
+.chip {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border;
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.8);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg px-5 py-3 font-medium transition;
+}
+.btn-primary {
+  @apply bg-primary text-black hover:bg-primary-600 active:bg-primary-700;
+}
+.btn-outline {
+  @apply border border-white/15 hover:border-white/30 text-white/90;
+}
+
+.card {
+  @apply rounded-xl bg-surface/60 backdrop-blur-sm border border-white/10 shadow-soft transition;
+}
+.card:hover { @apply border-white/20; }
+
+.segmented { @apply inline-flex p-1 rounded-xl bg-white/5 border border-white/10; }
+.segmented button { @apply px-4 py-2 rounded-lg text-sm transition; }
+.segmented .active { @apply bg-primary text-black border border-transparent; }
+
+.text-body {
+  color: rgba(255,255,255,0.9);
+}
+.theme-light .text-body,
+body.theme-light .text-body {
+  color: #0f172a;
+}
+.theme-light {
+  color-scheme: light;
+}
+.theme-light body,
+body.theme-light {
+  color: #0f172a;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(124,58,237,0.10), transparent 60%),
+    radial-gradient(800px 400px at 90% 10%, rgba(124,58,237,0.06), transparent 55%),
+    #f8fafc;
+}
+.theme-light .card,
+body.theme-light .card {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(15,23,42,0.08);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.06);
+}
+.theme-light .btn-outline,
+body.theme-light .btn-outline {
+  color: #0f172a;
+  border-color: rgba(15,23,42,0.2);
+}
+.theme-light .chip,
+body.theme-light .chip {
+  background: rgba(2,6,23,0.06);
+  border-color: rgba(2,6,23,0.12);
+  color: rgba(2,6,23,0.8);
+}
+.theme-light .segmented,
+body.theme-light .segmented {
+  background: rgba(2,6,23,0.06);
+  border-color: rgba(2,6,23,0.12);
+}
+.theme-light .segmented .active,
+body.theme-light .segmented .active {
+  color: #000;
+}
+
+/* Force readable text in light theme when utilities set text-white */
+.theme-light .text-white, 
+body.theme-light .text-white { color: #0f172a !important; }
+.theme-light .text-white\/90, 
+body.theme-light .text-white\/90 { color: rgba(15,23,42,0.9) !important; }
+.theme-light .text-white\/80, 
+body.theme-light .text-white\/80 { color: rgba(15,23,42,0.8) !important; }
+.theme-light .text-white\/70, 
+body.theme-light .text-white\/70 { color: rgba(15,23,42,0.7) !important; }
+.theme-light .text-white\/60, 
+body.theme-light .text-white\/60 { color: rgba(15,23,42,0.6) !important; }
+
+/* Muted override for light theme */
+.theme-light .text-muted, 
+body.theme-light .text-muted { color: #64748b !important; }
+
