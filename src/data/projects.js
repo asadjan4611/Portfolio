@@ -9,7 +9,7 @@ export const projects = [
   {
     id: "multivendor",
     name: "MarketLane",
-    repo: "https://github.com/asadjan4611/WEB_APP/blob/main/README.md",
+    repo: "https://github.com/asadjan4611/WEB_APP",
     live: "https://frontend-multivendor.netlify.app/",
     cover: img3,
     period: "Practice Project",
