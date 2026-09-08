@@ -1,138 +1,94 @@
-import React, { useState } from "react";
+"use client";
+
+import { useState } from "react";
 import { personal } from "../data/meta.js";
 
+const initialForm = {
+  name: "",
+  email: "",
+  company: "",
+  message: "",
+  website: "",
+};
+
 export default function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState({ type: "", message: "" });
   const [sending, setSending] = useState(false);
 
-  function update(e) {
-    const { name, value } = e.target;
-    setForm((f) => ({ ...f, [name]: value }));
-  }
+  const update = (event) => {
+    const { name, value } = event.target;
+    setForm((current) => ({ ...current, [name]: value }));
+  };
 
-  function onSubmit(e) {
-    e.preventDefault();
-    if (!form.email || !form.message) {
-      alert("Please fill your email and message.");
-      return;
-    }
+  async function submit(event) {
+    event.preventDefault();
     setSending(true);
-    const body =
-      encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
-    const subject = encodeURIComponent(form.subject || "Portfolio Inquiry");
-    window.location.href = `mailto:${personal.email}?subject=${subject}&body=${body}`;
-    setTimeout(() => setSending(false), 400);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const result = await response.json();
+
+      if (!response.ok) throw new Error(result.message);
+
+      setForm(initialForm);
+      setStatus({ type: "success", message: "Message sent. I’ll get back to you soon." });
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: error.message || "Something went wrong. Please reach out on LinkedIn.",
+      });
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
-    <div>
-      <div className="text-center mb-6">
-        <span className="chip">GET IN TOUCH</span>
-        <h2 className="mt-4 text-3xl md:text-4xl font-extrabold">
-          Let’s <span className="highlight">Connect</span>
-        </h2>
-        <p className="mt-2 text-white/80 max-w-3xl mx-auto">
-          Ready to bring your ideas to life? Let’s discuss how we can work together to create
-          something outstanding.
+    <div className="site-container contact-layout">
+      <div>
+        <div className="section-label"><span>07</span><p>Contact</p></div>
+        <h2 className="section-heading">Let’s make the next useful thing.</h2>
+        <p className="contact-copy">
+          Tell me where you are stuck, what you are trying to launch, or the engineering role
+          you are building. A good first conversation is usually enough to find the next step.
         </p>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="space-y-6">
-          <div className="card p-6">
-            <h3 className="font-semibold">Get In <span className="highlight">Touch</span></h3>
-            <p className="mt-3 text-white/80">
-              I’m always excited to discuss new opportunities, innovative projects, or potential
-              collaborations. Whether you’re looking for a full‑stack engineer, a mobile developer,
-              or a mentor for your team, I’d love to hear from you.
-            </p>
-            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <a
-                href={`tel:${personal.phone}`}
-                className="btn btn-primary w-full"
-                aria-label="Call"
-              >
-                Call {personal.phone}
-              </a>
-              <a
-                href={`https://wa.me/${(personal.phone || "").replace(/[^\d]/g, "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline w-full"
-                aria-label="WhatsApp Chat"
-              >
-                WhatsApp
-              </a>
-            </div>
-          </div>
-
-          <div className="card p-6">
-            <div className="flex items-center gap-2 text-white/80">
-              <span className="text-primary">🗓</span>
-              <h3 className="font-semibold">Schedule a Call</h3>
-            </div>
-            <p className="mt-2 text-white/70 text-sm">
-              Prefer a direct conversation? Book a meeting through Calendly to discuss your
-              requirements and how I can help.
-            </p>
-            <a
-              href="https://calendly.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 btn btn-primary w-full"
-            >
-              Book a Meeting
-            </a>
-          </div>
-        </div>
-
-        <div className="card p-6">
-          <h3 className="font-semibold">Send a <span className="highlight">Message</span></h3>
-          <form onSubmit={onSubmit} className="mt-4 space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <input
-                className="w-full rounded-lg bg-white/5 border border-white/10 px-3 py-2 outline-none focus:border-primary"
-                placeholder="Your name"
-                name="name"
-                value={form.name}
-                onChange={update}
-              />
-              <input
-                className="w-full rounded-lg bg-white/5 border border-white/10 px-3 py-2 outline-none focus:border-primary"
-                placeholder="your@email.com"
-                name="email"
-                type="email"
-                value={form.email}
-                onChange={update}
-              />
-            </div>
-            <input
-              className="w-full rounded-lg bg-white/5 border border-white/10 px-3 py-2 outline-none focus:border-primary"
-              placeholder="What’s this about?"
-              name="subject"
-              value={form.subject}
-              onChange={update}
-            />
-            <textarea
-              className="w-full min-h-[160px] rounded-lg bg-white/5 border border-white/10 px-3 py-2 outline-none focus:border-primary"
-              placeholder="Tell me about your project..."
-              name="message"
-              value={form.message}
-              onChange={update}
-            />
-            <button disabled={sending} className="btn btn-primary w-full">
-              {sending ? "Sending..." : "Send a Message"}
-            </button>
-          </form>
+        <div className="contact-links">
+          <a href={personal.socials.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href={personal.socials.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="/CV.pdf" download>Résumé ↓</a>
         </div>
       </div>
+
+      <form className="contact-form" onSubmit={submit}>
+        <div className="form-honeypot" aria-hidden="true">
+          <label>Website<input name="website" value={form.website} onChange={update} tabIndex="-1" autoComplete="off" /></label>
+        </div>
+        <label>
+          Name
+          <input name="name" value={form.name} onChange={update} required maxLength="100" autoComplete="name" placeholder="Your name" />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" value={form.email} onChange={update} required maxLength="254" autoComplete="email" placeholder="you@company.com" />
+        </label>
+        <label>
+          Company <small>(optional)</small>
+          <input name="company" value={form.company} onChange={update} maxLength="120" autoComplete="organization" placeholder="Company or product" />
+        </label>
+        <label>
+          What are you building?
+          <textarea name="message" value={form.message} onChange={update} required maxLength="5000" placeholder="A little context goes a long way." />
+        </label>
+        {status.message && <p className={`form-status ${status.type}`} role="status">{status.message}</p>}
+        <button type="submit" className="button button-dark" disabled={sending}>
+          {sending ? "Sending…" : "Send your message"} <span aria-hidden="true">↗</span>
+        </button>
+      </form>
     </div>
   );
 }
-
-

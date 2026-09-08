@@ -1,315 +1,134 @@
-import img1 from "../assets/images/1.png";
-import img2 from "../assets/images/2.png";
-import img3 from "../assets/images/3.png";
-
-
-
+import marketLaneImage from "../assets/images/3.png";
+import nestScoutImage from "../assets/images/2.png";
+import sociopediaImage from "../assets/images/1.png";
 
 export const projects = [
   {
-    id: "multivendor",
+    id: "marketlane",
     name: "MarketLane",
+    period: "Independent product build",
     repo: "https://github.com/asadjan4611/WEB_APP",
     live: "https://frontend-multivendor.netlify.app/",
-    cover: img3,
-    period: "Practice Project",
-    problem:
-      "Traditional single‑vendor stores limit growth and collaboration between sellers and buyers.",
+    cover: marketLaneImage,
     solution:
-      "A full multivendor marketplace with role‑based dashboards (Customer, Seller, Admin), secure checkout, real‑time chat, and payments.",
+      "A multi-vendor marketplace that connects customers, sellers, and administrators through one coherent commerce workflow.",
     overview:
-      "End‑to‑end marketplace: I designed schemas (users, shops, products, orders, payments, messages), built secure role‑based flows, added Stripe/PayPal payments, and implemented real‑time customer–seller messaging. Focus on clear module boundaries, predictable state, and safe payments.",
-    techDetails: [
-      { name: "React (Vite)", why: "Fast dev experience; modular dashboards and storefront UI." },
-      { name: "Redux Toolkit", why: "Centralized cart/session and admin data with predictable updates." },
-      { name: "Tailwind", why: "Consistent, responsive styling for all roles." },
-      { name: "Node.js + Express", why: "REST APIs for auth, products, orders, and payments." },
-      { name: "MongoDB + Mongoose", why: "Flexible documents for shops, products, orders, messages." },
-      { name: "Stripe / PayPal", why: "Secure checkout and payment confirmation via webhooks." },
-      { name: "Socket.IO", why: "Real‑time chat and order status updates." }
+      "I designed and built the marketplace end to end: account roles, seller onboarding, catalogue and order flows, payments, and customer–seller communication. The challenge was keeping a complex three-sided product understandable without weakening access control or transaction safety.",
+    impact: [
+      "Delivered a complete commerce journey from seller onboarding and product discovery through checkout, order tracking, and support.",
     ],
     sections: [
       {
-        title: "Role‑based Access & Seller Onboarding",
-        problem:
-          "The platform must support different responsibilities and secure areas for customers, sellers, and admins.",
+        title: "Separate roles, one product",
         solution:
-          "Implemented JWT auth with role checks and a guided seller onboarding flow with shop verification."
+          "Created focused customer, seller, and administrator journeys with explicit permissions and guarded actions.",
       },
       {
-        title: "Payments & Order Processing",
-        problem:
-          "Users need secure online payments and reliable order lifecycle updates.",
+        title: "Transactions people can trust",
         solution:
-          "Integrated Stripe/PayPal with order intents; added order status tracking and notifications."
+          "Connected payment confirmation to a predictable order lifecycle so users always understand what happens next.",
       },
       {
-        title: "Customer–Seller Communication",
-        problem:
-          "Buyers often need quick clarifications from sellers before purchasing.",
+        title: "Communication in context",
         solution:
-          "Built real‑time chat using Socket.IO with message history per order for better support."
-      }
+          "Kept buyer–seller messages connected to the relevant order, making questions and support easier to resolve.",
+      },
     ],
-    stack: [
-      "React (Vite)",
-      "Redux Toolkit",
-      "Tailwind",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Socket.IO",
-      "Stripe",
-      "PayPal"
-    ],
-    features: [
-      "Role‑based auth (JWT), shop onboarding",
-      "Product/catalog management and search",
-      "Cart, wishlist, orders, order status",
-      "Stripe/PayPal payments",
-      "Customer–Seller real‑time messaging (Socket.IO)",
-      "Admin management (users, sellers, transactions)"
-    ],
-    impact: [
-      "End‑to‑end marketplace experience",
-      "Practiced real‑world flows like seller onboarding and payouts"
-    ],
-    codeRef: "Multivendor/"
   },
   {
-    id: "real-estate",
+    id: "nestscout",
     name: "NestScout",
+    period: "Independent product build",
     repo: "https://github.com/asadjan4611/MERN_ESTATE_APP",
     live: "https://mern-estate-frontend.netlify.app/",
-    cover: img2,
-    period: "Practice Project",
-    problem:
-      "Listing apps need secure ownership, image storage, and flexible search to be useful.",
+    cover: nestScoutImage,
     solution:
-      "A MERN listing platform with Google OAuth, cookie‑based JWT, Supabase image storage, and advanced filters with pagination.",
+      "A property discovery product with secure ownership, image-led listings, and focused search across practical buying criteria.",
     overview:
-      "A listings platform with secure ownership and robust discovery. Google OAuth + cookie‑based JWT for auth; owner‑only CRUD; Supabase Storage for images; server‑side filters/sort/pagination for fast search.",
-    techDetails: [
-      { name: "React (Vite) + React Router", why: "Client routing and fast builds for listing flows." },
-      { name: "Redux Toolkit + Persist", why: "Stable auth/session across reloads." },
-      { name: "Node.js + Express", why: "REST endpoints for listing CRUD and search." },
-      { name: "MongoDB + Mongoose", why: "Schema for listings and owner references." },
-      { name: "Firebase Auth (Google)", why: "Low‑friction OAuth sign‑in." },
-      { name: "Supabase Storage", why: "Simple, reliable image uploads with public URLs." }
+      "I built the complete listing lifecycle—from low-friction sign-in and owner-only publishing to image management and server-side discovery. The product balances simple browsing for visitors with clear control for listing owners.",
+    impact: [
+      "Created a dependable path for owners to publish and manage properties while helping visitors narrow a large catalogue quickly.",
     ],
     sections: [
       {
-        title: "Ownership & Authentication",
-        problem:
-          "Only listing owners should be able to modify their properties while keeping sign‑in friction low.",
+        title: "Ownership by default",
         solution:
-          "Used Google OAuth + cookie‑based JWT, enforcing owner checks on CRUD endpoints."
+          "Enforced ownership rules at the service boundary so only the correct account can change or remove a listing.",
       },
       {
-        title: "Image Uploads & Storage",
-        problem:
-          "Listings need multiple images with reliable storage and public delivery URLs.",
+        title: "Useful property discovery",
         solution:
-          "Uploaded images to Supabase Storage and saved returned public URLs on listing documents."
+          "Designed filtering, sorting, and pagination around the criteria people use when comparing homes.",
       },
       {
-        title: "Search & Pagination",
-        problem:
-          "Users require fast discovery with filters (offer, parking, furnished) and predictable pagination.",
+        title: "A visual publishing flow",
         solution:
-          "Built flexible query filters with server‑side pagination and sort parameters."
-      }
+          "Built multi-image upload and management into the listing workflow without making publishing feel heavy.",
+      },
     ],
-    stack: [
-      "React (Vite)",
-      "React Router",
-      "Redux Toolkit + Persist",
-      "Tailwind",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Firebase Auth (Google)",
-      "Supabase Storage"
-    ],
-    features: [
-      "Auth with email/password and Google OAuth",
-      "Create/update/delete listings (owner‑only)",
-      "Upload up to 6 images per listing to Supabase",
-      "Search, filters, sorting and pagination",
-      "Profile management and owned listings"
-    ],
-    impact: [
-      "Secure resource ownership and robust search experience",
-      "Hands‑on integration with third‑party auth and storage"
-    ],
-    codeRef: "real-estate/"
   },
   {
     id: "sociopedia",
-    name: "Sociopedia — Social App",
+    name: "Sociopedia",
+    period: "Independent product build",
     repo: null,
     live: "https://sociopedia-front-end.netlify.app/",
-    cover: img1,
-    period: "Practice Project",
-    problem:
-      "Build a modern social feed with secure auth, posts with images, likes, and comments.",
+    cover: sociopediaImage,
     solution:
-      "A social platform with JWT auth, protected APIs, image uploads for posts, likes map, and comments with a responsive client.",
+      "A responsive social product for publishing media, following conversations, and interacting through likes and comments.",
     overview:
-      "Token‑based social app with a responsive feed. Backend exposes protected APIs; client handles post creation with images, likes, and comments using an efficient state model.",
-    techDetails: [
-      { name: "React + Material UI", why: "Composable UI for feed, posts, and profiles." },
-      { name: "Redux", why: "Stores user/token and feed state." },
-      { name: "Node.js + Express", why: "Protected API routes for posts/likes/comments." },
-      { name: "MongoDB", why: "Documents for users, posts, and interactions." },
-      { name: "JWT", why: "Secures requests and guards private routes." }
+      "I shaped a familiar social experience around a protected account and content model. The work covered the entire interaction loop: identity, publishing, feed rendering, media, reactions, and conversation.",
+    impact: [
+      "Delivered a complete authenticated social loop with responsive publishing, browsing, and interaction flows.",
     ],
     sections: [
       {
-        title: "Secure Feed & Auth",
-        problem:
-          "Only authenticated users should read/post content; APIs must be protected.",
+        title: "Protected participation",
         solution:
-          "JWT‑based auth with protected endpoints and token checks on feed/post routes."
+          "Separated public presentation from authenticated actions and guarded private operations at the API boundary.",
       },
       {
-        title: "Posts with Media",
-        problem:
-          "Users want to share images with posts without slowing the app.",
+        title: "Media without friction",
         solution:
-          "Implemented image uploads and efficient post payloads; optimized UI with lazy rendering."
+          "Kept post creation direct while supporting image-led content and responsive feed presentation.",
       },
       {
-        title: "Likes & Comments",
-        problem:
-          "Interactions should be fast and consistent across sessions.",
+        title: "Fast interaction feedback",
         solution:
-          "Used a likes map and comment arrays with atomic updates and optimistic UI on the client."
-      }
+          "Structured likes and comments so the interface can respond immediately while retaining consistent server state.",
+      },
     ],
-    stack: [
-      "React",
-      "Redux",
-      "Material UI",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "JWT"
-    ],
-    features: [
-      "Login/register and token‑based auth",
-      "Create posts with images",
-      "Global feed and user posts",
-      "Like/unlike and comments",
-      "Responsive UI"
-    ],
-    impact: [
-      "Implemented secure auth and scalable post model",
-      "Built reusable widget‑based UI components"
-    ],
-    codeRef: "Sociopedia/"
   },
   {
-    id: "flutter-chemist",
-    name: "Flutter App — Chemist Lab",
+    id: "chemist-lab",
+    name: "Chemist Lab",
+    period: "Mobile product build",
     repo: null,
     live: null,
-    period: "Mobile App",
-    problem:
-      "People need a simple way to browse common lab tests and request a booking from their phone.",
+    cover: null,
     solution:
-      "A beginner‑friendly Flutter app to view basic test packages, add them to a cart, pick a date/time, and submit a booking request (no online payments; confirmation handled manually).",
+      "A mobile booking experience that helps people find lab tests, organise selections, and request a convenient appointment.",
     overview:
-      "A compact mobile app focused on clear UX for selecting lab tests and requesting a booking. I implemented a lightweight architecture with state management (Provider) and local persistence for cart items using shared_preferences so the app works well offline and across restarts.",
-    techDetails: [
-      { name: "Flutter + Dart", why: "Single codebase for Android/iOS with smooth UI and fast iteration via Hot Reload." },
-      { name: "Provider", why: "Simple, testable state management for cart and booking flows." },
-      { name: "shared_preferences", why: "Local persistence of selected tests and form values for offline resilience." }
+      "I built a compact mobile journey for discovering tests, reviewing a cart, choosing a time, and completing a validated booking request. Local persistence keeps unfinished selections intact across restarts and unreliable connections.",
+    impact: [
+      "Turned a multi-step laboratory booking task into a focused mobile flow that remains useful across interrupted sessions.",
     ],
     sections: [
       {
-        title: "Catalog & Search",
-        problem: "Users must quickly find tests among multiple categories.",
-        solution: "Implemented searchable lists with categorized views and local filtering for responsiveness."
+        title: "Find the right test",
+        solution:
+          "Combined categories and local search to help people move quickly through an unfamiliar medical catalogue.",
       },
       {
-        title: "Cart & Booking",
-        problem: "Users need to add tests, review totals, and choose a preferred date/time.",
-        solution: "Built a cart store with Provider and a guided booking form with validation and simple confirmation flow."
+        title: "A calm booking sequence",
+        solution:
+          "Organised selection, review, scheduling, and personal details into a guided flow with clear validation.",
       },
       {
-        title: "Offline‑friendly UX",
-        problem: "Users may close/reopen the app and expect their selections to persist.",
-        solution: "Persisted cart and form fields in shared_preferences and restored them on app start."
-      }
+        title: "Resilient on mobile",
+        solution:
+          "Persisted cart and form progress locally so a closed app or interrupted connection does not erase the user’s work.",
+      },
     ],
-    stack: ["Flutter", "Dart", "Provider", "shared_preferences"],
-    features: [
-      "Browse lab tests by simple categories",
-      "Search tests by name",
-      "Add/remove tests from a cart",
-      "Choose preferred date and time",
-      "Basic form validation for name/phone/address",
-      "Local cart persistence using shared_preferences"
-    ],
-    impact: [
-      "Practiced Flutter layouts (ListView, Grid, Forms) and navigation",
-      "Learned state management with Provider and local storage",
-      "Built a small but complete request flow without backend complexity"
-    ],
-    codeRef: null
   },
-  {
-    id: "flutter-image-pdf",
-    name: "Flutter App — Image to PDF Editor",
-    repo: null,
-    live: null,
-    period: "Mobile App",
-    problem:
-      "Combining multiple photos into a single PDF is a common need for assignments, receipts, and documents.",
-    solution:
-      "A simple utility app to pick images from gallery or camera, reorder pages, choose page size, and export/share a PDF.",
-    overview:
-      "A utility app that converts selected images into a single PDF. It focuses on a predictable editing flow: pick images, reorder pages, choose paper size/orientation, then export and share. Emphasis on device permissions, file I/O, and predictable UI updates.",
-    techDetails: [
-      { name: "Flutter + Dart", why: "Fast UI prototyping and cross‑platform distribution." },
-      { name: "image_picker", why: "Select images from camera or gallery with appropriate permissions." },
-      { name: "pdf", why: "Generate PDFs on device with configurable page sizes and orientation." },
-      { name: "path_provider", why: "Resolve safe storage locations for exported files across platforms." }
-    ],
-    sections: [
-      {
-        title: "Image Selection & Ordering",
-        problem: "Users need to add and reorder pages easily before export.",
-        solution: "Used image_picker and a ReorderableListView to implement intuitive drag‑and‑drop page ordering."
-      },
-      {
-        title: "PDF Generation",
-        problem: "Users want control over paper size and orientation with reliable output.",
-        solution: "Integrated the pdf package to render pages, apply page size, and export to a shareable file."
-      },
-      {
-        title: "Permissions & Storage",
-        problem: "Accessing camera/gallery and saving files must respect platform sandboxing.",
-        solution: "Handled runtime permissions and wrote files to directories returned by path_provider; added share intent."
-      }
-    ],
-    stack: ["Flutter", "Dart", "image_picker", "pdf", "path_provider"],
-    features: [
-      "Pick images from gallery or camera",
-      "Reorder pages with ReorderableListView",
-      "Set page size (A4/Letter) and orientation",
-      "Generate PDF using the pdf package",
-      "Save to device and share via intent",
-      "Light/Dark mode basics"
-    ],
-    impact: [
-      "Gained experience with permissions and file I/O",
-      "Worked with popular Flutter packages and platform storage paths",
-      "Improved understanding of state updates and list reordering"
-    ],
-    codeRef: null
-  }
 ];
-
-
