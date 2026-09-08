@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { personal } from "../data/meta.js";
-import heroImage from "../assets/images/founder-engineering-studio.png";
 
 export default function Hero() {
   return (
@@ -37,18 +35,37 @@ export default function Hero() {
         </div>
       </div>
 
-      <aside className="hero-portrait" aria-label="Abstract engineered system">
-        <div className="portrait-frame">
-          <Image
-            src={heroImage}
-            alt="A modular engineered structure connected by an orange cable"
-            priority
-            sizes="(max-width: 800px) 78vw, 380px"
-          />
+      <aside className="hero-system" aria-label="A system map connecting ideas, AI, products, and open source">
+        <div className="system-map" aria-hidden="true">
+          <span className="system-orbit system-orbit-one" />
+          <span className="system-orbit system-orbit-two" />
+          <span className="system-link system-link-one" />
+          <span className="system-link system-link-two" />
+
+          <div className="system-node system-node-products">
+            <strong>Products</strong>
+            <span>Shipped</span>
+          </div>
+          <div className="system-node system-node-oss">
+            <strong>Open<br />source</strong>
+            <span>Contributed</span>
+          </div>
+          <div className="system-node system-node-ai">
+            <strong>AI</strong>
+            <span>Applied</span>
+          </div>
+          <div className="system-node system-node-ideas">
+            <strong>Ideas</strong>
+            <span>Engineered</span>
+          </div>
+
+          <p className="system-caption">From first principle<br />to production.</p>
         </div>
-        <div className="portrait-caption">
-          <span>My operating principle</span>
-          <strong>From idea to infrastructure</strong>
+
+        <div className="system-legend">
+          <span>Build</span>
+          <span>Contribute</span>
+          <span>Explain</span>
         </div>
       </aside>
     </div>
