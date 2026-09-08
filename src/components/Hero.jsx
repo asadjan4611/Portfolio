@@ -6,20 +6,20 @@ export default function Hero() {
       <div className="hero-copy">
         <p className="eyebrow">
           <span className="status-dot" aria-hidden="true" />
-          Available for high-ownership product work
+          Product systems · Open-source infrastructure
         </p>
 
-        <h1>I turn ambitious ideas into <em>shippable</em> products.</h1>
+        <h1>I engineer reliable systems from <em>problem</em> to production.</h1>
 
         <p className="hero-intro">
-          I’m {personal.name}, a software engineer who takes products from the first hard
-          question to a reliable release—architecture, interface, implementation, and the
-          details that make it ready for real people.
+          I’m {personal.name}, a product and systems engineer working across Kubernetes GPU
+          infrastructure, applied AI, web, and mobile. I turn ambiguous requirements into
+          software that ships, operates, and improves in the real world.
         </p>
 
         <div className="hero-actions">
           <a href="#work" className="button button-dark">
-            See selected work <span aria-hidden="true">↓</span>
+            Explore engineering work <span aria-hidden="true">↓</span>
           </a>
           <a href="#contact" className="button button-text">
             Start a conversation <span aria-hidden="true">↗</span>
@@ -27,46 +27,56 @@ export default function Hero() {
         </div>
 
         <div className="hero-note">
-          <span>01</span>
+          <span>Current focus</span>
           <p>
-            Engineer by craft. Entrepreneurial by default.
-            <br />I build for momentum, clarity, and durable outcomes.
+            GPU scheduling and resource sharing on Kubernetes.
+            <br />Contributing upstream with Project HAMi.
           </p>
         </div>
       </div>
 
-      <aside className="hero-system" aria-label="A system map connecting ideas, AI, products, and open source">
-        <div className="system-map" aria-hidden="true">
-          <span className="system-orbit system-orbit-one" />
-          <span className="system-orbit system-orbit-two" />
-          <span className="system-link system-link-one" />
-          <span className="system-link system-link-two" />
+      <aside className="hero-blueprint" aria-label="Engineering scope from product workflows to infrastructure">
+        <header className="blueprint-header">
+          <span>Operating model / 01</span>
+          <strong>End-to-end ownership</strong>
+        </header>
 
-          <div className="system-node system-node-products">
-            <strong>Products</strong>
-            <span>Shipped</span>
-          </div>
-          <div className="system-node system-node-oss">
-            <strong>Open<br />source</strong>
-            <span>Contributed</span>
-          </div>
-          <div className="system-node system-node-ai">
-            <strong>AI</strong>
-            <span>Applied</span>
-          </div>
-          <div className="system-node system-node-ideas">
-            <strong>Ideas</strong>
-            <span>Engineered</span>
+        <div className="blueprint-canvas" aria-hidden="true">
+          <div className="blueprint-rail">
+            <span>Frame</span>
+            <span>Design</span>
+            <span>Ship</span>
+            <span>Operate</span>
           </div>
 
-          <p className="system-caption">From first principle<br />to production.</p>
+          <div className="blueprint-stack">
+            <article className="blueprint-layer blueprint-product">
+              <div><span>01</span><p>Product layer</p></div>
+              <strong>Useful workflows</strong>
+              <small>Web · mobile · user experience</small>
+            </article>
+
+            <article className="blueprint-layer blueprint-systems">
+              <div><span>02</span><p>Systems layer</p></div>
+              <strong>Reliable software</strong>
+              <small>APIs · automation · applied AI</small>
+            </article>
+
+            <article className="blueprint-layer blueprint-infra">
+              <div><span>03</span><p>Infrastructure layer</p></div>
+              <strong>Production foundations</strong>
+              <small>Kubernetes · GPU scheduling · observability</small>
+            </article>
+
+            <div className="blueprint-signal">
+              <i /> <span>Feedback loop active</span>
+            </div>
+          </div>
         </div>
 
-        <div className="system-legend">
-          <span>Build</span>
-          <span>Contribute</span>
-          <span>Explain</span>
-        </div>
+        <footer className="blueprint-footer">
+          <span>Problem</span><b>→</b><span>System</span><b>→</b><span>Outcome</span>
+        </footer>
       </aside>
     </div>
   );

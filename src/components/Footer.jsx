@@ -14,8 +14,8 @@ export default function Footer() {
       <div className="site-container footer-cta">
         <p className="footer-kicker"><span /> Available for high-ownership engineering work</p>
         <div>
-          <h2>Have an ambitious problem?</h2>
-          <a href="#contact">Let’s build it <span aria-hidden="true">↗</span></a>
+          <h2>Have a difficult system to build?</h2>
+          <a href="#contact">Let’s engineer it <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
@@ -25,7 +25,7 @@ export default function Footer() {
             <span className="brand-mark" aria-hidden="true">MA</span>
             <span>{personal.name}</span>
           </a>
-          <p>Software engineer building products from first principles to production.</p>
+          <p>Product and systems engineer working across open-source infrastructure, applied AI, and end-to-end delivery.</p>
           <p>Pakistan · Working globally</p>
         </div>
 
@@ -45,7 +45,7 @@ export default function Footer() {
 
       <div className="site-container footer-bottom">
         <p>© {new Date().getFullYear()} Muhammad Asad</p>
-        <p>Designed around clarity, ownership, and useful outcomes.</p>
+        <p>Systems thinking. Product ownership. Production outcomes.</p>
         <a href="#home">Back to top ↑</a>
       </div>
     </footer>

@@ -22,11 +22,11 @@ export default function About() {
       <div className="section-label"><span>01</span><p>How I work</p></div>
 
       <div className="approach-content">
-        <h2>Built for founders who need an engineer in the room—not just another pair of hands.</h2>
+        <h2>I work where product decisions become engineering systems.</h2>
         <p className="large-copy">
-          The work I enjoy sits where product ambition meets engineering reality. I bring
-          structure to vague ideas, make deliberate technical choices, and keep the focus on
-          what moves the product forward.
+          My role is not limited to implementing screens. I clarify the constraint, design the
+          system, build the critical paths, and carry the result into production—while keeping
+          reliability, maintainability, and the user’s real workflow in view.
         </p>
 
         <div className="principles">

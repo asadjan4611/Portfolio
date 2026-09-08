@@ -52,10 +52,11 @@ export default function Contact() {
     <div className="site-container contact-layout">
       <div>
         <div className="section-label"><span>07</span><p>Contact</p></div>
-        <h2 className="section-heading">Let’s make the next useful thing.</h2>
+        <h2 className="section-heading">Bring me a problem that needs engineering.</h2>
         <p className="contact-copy">
-          Tell me where you are stuck, what you are trying to launch, or the engineering role
-          you are building. A good first conversation is usually enough to find the next step.
+          Whether it is a product workflow, an unreliable service, or an infrastructure
+          constraint, share the context and the outcome you need. We can identify the next
+          useful engineering decision from there.
         </p>
         <div className="contact-links">
           <a href={personal.socials.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
@@ -81,8 +82,8 @@ export default function Contact() {
           <input name="company" value={form.company} onChange={update} maxLength="120" autoComplete="organization" placeholder="Company or product" />
         </label>
         <label>
-          What are you building?
-          <textarea name="message" value={form.message} onChange={update} required maxLength="5000" placeholder="A little context goes a long way." />
+          What problem are you solving?
+          <textarea name="message" value={form.message} onChange={update} required maxLength="5000" placeholder="Share the context, constraints, and desired outcome." />
         </label>
         {status.message && <p className={`form-status ${status.type}`} role="status">{status.message}</p>}
         <button type="submit" className="button button-dark" disabled={sending}>
